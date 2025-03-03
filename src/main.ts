@@ -11,7 +11,7 @@ async function bootstrap() {
     .setTitle('Inventory Management API')
     .setDescription('API documentation for the Barcode-Driven Inventory System')
     .setVersion('1.0')
-    .addBearerAuth() // Enable JWT Authentication in Swagger
+    .addBearerAuth()
     .build();
 
   const document = SwaggerModule.createDocument(app, config);

@@ -10,10 +10,10 @@ import {
 } from '@nestjs/common';
 import { ProductService } from './product.service';
 import { JwtAuthGuard } from 'src/auth/jwt-auth.guard';
-import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
-import { Product } from './schemas/product.schema';
+import { ApiBearerAuth, ApiBody, ApiOperation, ApiTags } from '@nestjs/swagger';
 
 @ApiTags('Products')
+@ApiBearerAuth()
 @Controller('products')
 export class ProductController {
   constructor(private readonly productService: ProductService) {}
@@ -28,10 +28,16 @@ export class ProductController {
 
   // 2. Add product manually
   @ApiOperation({ summary: 'Add a new product' })
-  @ApiResponse({
-    status: 201,
-    description: 'Product created successfully',
-    type: Product,
+  @ApiBody({
+    schema: {
+      type: 'object',
+      properties: {
+        barcode: { type: 'string', example: '1234567890123' },
+        name: { type: 'string', example: 'Laptop' },
+        category: { type: 'string', example: 'Electronics' },
+        quantity: { type: 'number', example: 10 },
+      },
+    },
   })
   @UseGuards(JwtAuthGuard)
   @Post()
@@ -41,11 +47,6 @@ export class ProductController {
 
   // 3. Get all products
   @ApiOperation({ summary: 'Retrieve all products' })
-  @ApiResponse({
-    status: 200,
-    description: 'List of all products',
-    type: [Product],
-  })
   @UseGuards(JwtAuthGuard)
   @Get()
   async getProducts(@Query('category') category?: string) {
@@ -54,10 +55,13 @@ export class ProductController {
 
   // 4. Update product category
   @ApiOperation({ summary: 'Update a new product' })
-  @ApiResponse({
-    status: 201,
-    description: 'Product updated successfully',
-    type: Product,
+  @ApiBody({
+    schema: {
+      type: 'object',
+      properties: {
+        category: { type: 'string', example: 'Updated Category' },
+      },
+    },
   })
   @UseGuards(JwtAuthGuard)
   @Put('update-category/:barcode')

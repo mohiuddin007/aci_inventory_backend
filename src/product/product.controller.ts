@@ -17,7 +17,7 @@ export class ProductController {
     return this.productService.addProduct(productData);
   }
 
-  // 3. Get all products (optional filter by category)
+  // 3. Get all products
   @Get()
   async getProducts(@Query('category') category?: string) {
     return this.productService.getProducts(category);

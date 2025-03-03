@@ -19,8 +19,8 @@ Follow these steps to **clone, install dependencies, and run** this NestJS proje
 ### 1️⃣ Clone the Repository
 
 ```sh
-git clone <https://github.com/mohiuddin007/aci_inventory_backend.git>
-cd <aci_inventory_backend>
+git clone https://github.com/mohiuddin007/aci_inventory_backend.git
+cd aci_inventory_backend
 ```
 
 ### 2️⃣ Install Dependencies

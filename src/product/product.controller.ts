@@ -35,13 +35,15 @@ export class ProductController {
         barcode: { type: 'string', example: '1234567890123' },
         name: { type: 'string', example: 'Laptop' },
         category: { type: 'string', example: 'Electronics' },
-        quantity: { type: 'number', example: 10 },
+        description: { type: 'string', example: 'description' },
+        material: { type: 'number', example: 12345 },
       },
     },
   })
   @UseGuards(JwtAuthGuard)
   @Post()
   async addProduct(@Body() productData) {
+    console.log(productData);
     return this.productService.addProduct(productData);
   }
 

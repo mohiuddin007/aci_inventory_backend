@@ -22,10 +22,10 @@ export class ProductService {
       // Save the product in MongoDB under 'Uncategorized'
       const product = new this.productModel({
         barcode,
-        name: response.data.name,
-        brand: response.data.brand,
+        name: response.data.name || '',
         category: 'Uncategorized',
-        imageUrl: response.data.image,
+        description: response.data.description,
+        material: response.data?.material,
       });
 
       return product.save();
@@ -39,7 +39,7 @@ export class ProductService {
   async addProduct(productData: Partial<Product>): Promise<Product> {
     const product = new this.productModel({
       ...productData,
-      category: 'Uncategorized',
+      category: productData?.category ?? 'Uncategorized',
     });
     return product.save();
   }

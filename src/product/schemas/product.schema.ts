@@ -14,24 +14,20 @@ export class Product {
   barcode: string;
 
   @ApiProperty({ example: 'Laptop', description: 'The name of the product' })
-  @Prop({ required: true })
-  name: string;
+  @Prop({ required: false })
+  name?: string;
 
   @ApiProperty({ example: 'Electronics', description: 'Product category' })
   @Prop({ default: 'Uncategorized' })
   category: string;
 
-  @ApiProperty({ example: 10, description: 'Available quantity' })
-  @Prop({ required: true })
-  quantity: number;
-
-  @ApiProperty({ example: 'ACI', description: 'Brand Name' })
+  @ApiProperty({ example: 'Material Number', description: 'Brand Name' })
   @Prop()
-  brand?: string;
+  material?: number;
 
-  @ApiProperty({ example: 'image url', description: 'Product image url' })
+  @ApiProperty({ example: '2022-01-01', description: 'Release Date' })
   @Prop()
-  imageUrl?: string;
+  description: string;
 }
 
 export const ProductSchema = SchemaFactory.createForClass(Product);

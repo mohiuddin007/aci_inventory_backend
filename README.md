@@ -59,7 +59,7 @@ npm run start:prod
 The application should now be running at:
 
 ```
-http://localhost:3080
+[https://aci-inventory-backend.onrender.com](https://aci-inventory-backend.onrender.com/)
 ```
 
 ---
@@ -68,7 +68,7 @@ http://localhost:3080
 
 This project includes **Swagger** for API documentation.
 
-- **Access Swagger UI:** [http://localhost:3080/api/docs](http://localhost:3080/api/docs)
+- **Access Swagger UI:** [https://aci-inventory-backend.onrender.com/api/docs](https://aci-inventory-backend.onrender.com/api/docs)
 - **API Authentication:** Bearer Token (JWT)
 
 ---

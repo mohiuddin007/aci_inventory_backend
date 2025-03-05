@@ -18,7 +18,6 @@ import { ApiBearerAuth, ApiBody, ApiOperation, ApiTags } from '@nestjs/swagger';
 export class ProductController {
   constructor(private readonly productService: ProductService) {}
 
-  // 1. Scan barcode & save to DB
   @ApiOperation({ summary: 'Fetch product by barcode' })
   @UseGuards(JwtAuthGuard)
   @Get('scan/:barcode')

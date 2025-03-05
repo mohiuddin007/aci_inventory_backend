@@ -7,6 +7,7 @@ import { ConfigModule } from '@nestjs/config';
 import { InjectConnection, MongooseModule } from '@nestjs/mongoose';
 import { AuthModule } from './auth/auth.module';
 import { Connection } from 'mongoose';
+import { DashboardModule } from './dashboard/dashboard.module';
 
 @Module({
   imports: [
@@ -15,6 +16,7 @@ import { Connection } from 'mongoose';
     ProductModule,
     CategoriesModule,
     AuthModule,
+    DashboardModule,
   ],
   controllers: [AppController],
   providers: [AppService],
